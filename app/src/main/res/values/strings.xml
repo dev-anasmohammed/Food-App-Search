@@ -8,4 +8,7 @@
     <string name="food_item">Food Item</string>
     <string name="dollar_sign">$</string>
     <string name="fake_rating_counter">(25+)</string>
+    <string name="notice">Uh oh!</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

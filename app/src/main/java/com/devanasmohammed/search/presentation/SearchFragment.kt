@@ -17,6 +17,7 @@ import com.devanasmohammed.search.R
 import com.devanasmohammed.search.data.model.Resource
 import com.devanasmohammed.search.data.repository.ProductsRepository
 import com.devanasmohammed.search.databinding.FragmentSearchBinding
+import com.devanasmohammed.search.util.AlertDialogHandler
 import com.devanasmohammed.search.util.Constants.Companion.SEARCH_DELAY
 import com.devanasmohammed.search.util.ProgressBarHandler
 import kotlinx.coroutines.Job
@@ -75,11 +76,13 @@ class SearchFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     progressBar.hide()
-                    Toast.makeText(
-                        requireContext(),
-                        "Failed to get products, Please try again",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    AlertDialogHandler().showDialog(
+                        requireActivity(),"Uh oh!",
+                        "Failed to get products, Please check your internet connection and try again",
+                        true
+                    ){
+                        viewModel.getAllRemoteProducts()
+                    }
                     Log.e("SearchFragment", "Error")
                 }
             }

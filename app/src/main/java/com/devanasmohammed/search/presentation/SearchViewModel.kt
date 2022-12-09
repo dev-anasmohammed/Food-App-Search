@@ -29,7 +29,7 @@ class SearchViewModel(
         getAllRemoteProducts()
     }
 
-    private fun getAllRemoteProducts() {
+     fun getAllRemoteProducts() {
         viewModelScope.launch {
             _products.postValue(Resource.Loading())
             _products.postValue(

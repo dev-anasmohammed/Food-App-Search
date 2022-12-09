@@ -1,4 +1,4 @@
-package com.devanasmohammed.search.presentation
+package com.devanasmohammed.search.presentation.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,8 +8,6 @@ import com.devanasmohammed.search.data.model.Product
 import com.devanasmohammed.search.data.model.ProductsResponse
 import com.devanasmohammed.search.data.model.Resource
 import com.devanasmohammed.search.data.repository.ProductsRepository
-import com.devanasmohammed.search.util.Constants.Companion.SEARCH_DELAY
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

@@ -1,4 +1,4 @@
-package com.devanasmohammed.search.presentation
+package com.devanasmohammed.search.presentation.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

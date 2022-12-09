@@ -1,4 +1,4 @@
-package com.devanasmohammed.search.presentation
+package com.devanasmohammed.search.presentation.search
 
 import android.content.Context
 import android.graphics.drawable.Drawable

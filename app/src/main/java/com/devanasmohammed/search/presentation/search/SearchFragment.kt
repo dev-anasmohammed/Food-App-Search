@@ -1,4 +1,4 @@
-package com.devanasmohammed.search.presentation
+package com.devanasmohammed.search.presentation.search
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil

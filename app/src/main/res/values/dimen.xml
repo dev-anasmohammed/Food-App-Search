@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="global_margin">@dimen/_24sdp</dimen>
+    <dimen name="global_elevation">@dimen/_4sdp</dimen>
+    <dimen name="button_height">@dimen/_51sdp</dimen>
+</resources>

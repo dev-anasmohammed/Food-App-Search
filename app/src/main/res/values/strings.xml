@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Search</string>
+
+    <!-- Search Fragment -->
+    <string name="search_food">Search Food</string>
+    <string name="search_for_anything">Search for anything</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="food_item">Food Item</string>
+    <string name="dollar_sign">$</string>
+    <string name="fake_rating_counter">(25+)</string>
+</resources>

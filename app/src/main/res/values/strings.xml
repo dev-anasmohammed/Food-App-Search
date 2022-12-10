@@ -11,4 +11,6 @@
     <string name="notice">Uh oh!</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="fake_rating_count">(25+)</string>
+    <string name="results">Found\n%s results</string>
 </resources>

@@ -1,204 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/results_tv"
+    <data>
+
+        <variable
+            name="product"
+            type="com.devanasmohammed.search.data.model.Product" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:elevation="@dimen/_20sdp"
-        android:fontFamily="@font/sofia_pro_semi_bold"
-        android:lineSpacingExtra="@dimen/_minus3sdp"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_24ssp"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Found\n30 Results" />
+        android:layout_height="wrap_content">
 
-    <carbon.widget.ConstraintLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp">
-
-        <ImageView
-            android:id="@+id/fav_layout"
-            android:layout_width="@dimen/_14sdp"
-            android:layout_height="@dimen/_14sdp"
-            android:contentDescription="@null"
-            android:elevation="@dimen/_20sdp"
-            android:src="@drawable/ic_fav"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-        <carbon.widget.ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:alpha="0.5"
-            android:background="@drawable/bg_circle"
-            android:elevation="@dimen/_2sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <carbon.widget.LinearLayout
-            android:id="@+id/price_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:background="@color/white"
-            android:elevation="@dimen/_4sdp"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/_8sdp"
-            android:paddingTop="@dimen/_2sdp"
-            android:paddingEnd="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_2sdp"
-            app:carbon_cornerRadius="@dimen/_112sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/product_image_layout">
-
-            <TextView
-                android:id="@+id/dollar_sign_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/sofia_pro_regular"
-                android:text="@string/dollar_sign"
-                android:textColor="@color/orange"
-                android:textSize="@dimen/_8ssp" />
-
-            <TextView
-                android:id="@+id/price_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/sofia_pro_semi_bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                tools:text="9.50" />
-
-        </carbon.widget.LinearLayout>
-
-        <carbon.widget.LinearLayout
-            android:id="@+id/rate_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_minus16sdp"
-            android:background="@color/white"
-            android:elevation="@dimen/_15sdp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/_4sdp"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:carbon_cornerRadius="@dimen/_112sdp"
-            app:carbon_elevationShadowColor="@color/orange"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_image_layout">
-
-            <TextView
-                android:id="@+id/rate_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_weight="1"
-                android:fontFamily="@font/sofia_pro_semi_bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                tools:text="4.5" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_10sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_weight="1"
-                android:contentDescription="@null"
-                android:paddingTop="@dimen/_2sdp"
-                android:src="@drawable/ic_rate_star" />
-
-            <TextView
-                android:id="@+id/rate_counter_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_marginEnd="@dimen/_4sdp"
-                android:layout_weight="1"
-                android:fontFamily="@font/sofia_pro_regular"
-                android:textSize="@dimen/_7ssp"
-                tools:text="(25+)" />
-        </carbon.widget.LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/product_image_layout"
+        <TextView
+            android:id="@+id/results_tv"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_146sdp"
-            app:cardCornerRadius="@dimen/_15sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/product_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:elevation="0dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/pizza" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/product_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:ellipsize="end"
-            android:fontFamily="@font/sofia_pro_semi_bold"
-            android:maxLines="2"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rate_layout"
-            tools:text="Red in hot pasta" />
-
-        <TextView
-            android:id="@+id/product_description"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_8sdp"
-            android:ellipsize="end"
+            android:elevation="@dimen/_20sdp"
             android:fontFamily="@font/sofia_pro_semi_bold"
-            android:maxLines="2"
-            android:textAlignment="viewStart"
-            android:textColor="@color/gray_4"
-            android:textSize="@dimen/_11ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_title"
-            tools:text="spicy chicken , beef" />
-    </carbon.widget.ConstraintLayout>
+            android:lineSpacingExtra="@dimen/_minus3sdp"
+            android:text="@{String.format(@string/results, product.brand)}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_24ssp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Found\n30 Results" />
 
-</RelativeLayout>
+        <carbon.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/fav_layout"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:contentDescription="@null"
+                android:elevation="@dimen/_20sdp"
+                android:src="@drawable/ic_fav"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <carbon.widget.ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:alpha="0.5"
+                android:background="@drawable/bg_circle"
+                android:elevation="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <carbon.widget.LinearLayout
+                android:id="@+id/price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/white"
+                android:elevation="@dimen/_4sdp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                app:carbon_cornerRadius="@dimen/_112sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/product_image_layout">
+
+                <TextView
+                    android:id="@+id/dollar_sign_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sofia_pro_regular"
+                    android:text="@string/dollar_sign"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_8ssp" />
+
+                <TextView
+                    android:id="@+id/price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sofia_pro_semi_bold"
+                    android:text="@{String.valueOf(product.price)}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="9.50" />
+
+            </carbon.widget.LinearLayout>
+
+            <carbon.widget.LinearLayout
+                android:id="@+id/rate_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_minus16sdp"
+                android:background="@color/white"
+                android:elevation="@dimen/_15sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                app:carbon_cornerRadius="@dimen/_112sdp"
+                app:carbon_elevationShadowColor="@color/orange"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/product_image_layout">
+
+                <TextView
+                    android:id="@+id/rate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sofia_pro_semi_bold"
+                    android:text="@{String.valueOf(product.rating)}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="4.5" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:contentDescription="@null"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:src="@drawable/ic_rate_star" />
+
+                <TextView
+                    android:id="@+id/rate_counter_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sofia_pro_regular"
+                    android:text="@string/fake_rating_count"
+                    android:textSize="@dimen/_7ssp" />
+            </carbon.widget.LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/product_image_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_146sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:elevation="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pizza" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/sofia_pro_semi_bold"
+                android:maxLines="2"
+                android:text="@{product.title}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rate_layout"
+                tools:text="Red in hot pasta" />
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/sofia_pro_semi_bold"
+                android:maxLines="2"
+                android:text="@{product.description}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray_4"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/product_title"
+                tools:text="spicy chicken , beef" />
+        </carbon.widget.ConstraintLayout>
+
+    </RelativeLayout>
+</layout>
 

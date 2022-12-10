@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -21,9 +21,9 @@ import com.devanasmohammed.search.data.model.Product
 
 class ProductsAdapter(
     private val context: Context,
-) : RecyclerView.Adapter<ProductsAdapter.ArticlesViewHolder>() {
+) : ListAdapter<Product, ProductsAdapter.ProductsViewHolder>(DiffCallback()) {
 
-    inner class ArticlesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val resultsTv: TextView
         val content: ConstraintLayout
         val priceTv: TextView
@@ -45,7 +45,7 @@ class ProductsAdapter(
         }
     }
 
-    private val differCallback = object : DiffUtil.ItemCallback<Product>() {
+    class DiffCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
             return oldItem.id == newItem.id
         }
@@ -53,28 +53,26 @@ class ProductsAdapter(
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
             return oldItem == newItem
         }
+
     }
 
-    val differ = AsyncListDiffer(this, differCallback)
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesViewHolder {
-        return ArticlesViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
+        return ProductsViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_product, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ArticlesViewHolder, position: Int) {
-        val product = differ.currentList[position]
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
+        val product = getItem(position)
 
         //first item for results
-        if(product.title.isEmpty()&&product.brand.isNotEmpty()){
+        if (product.title.isEmpty() && product.brand.isNotEmpty()) {
             holder.resultsTv.visibility = View.VISIBLE
             holder.content.visibility = View.GONE
 
             holder.resultsTv.text = "Found\n${product.brand} results"
-        }else{
+        } else {
             holder.resultsTv.visibility = View.GONE
             holder.content.visibility = View.VISIBLE
 
@@ -85,11 +83,9 @@ class ProductsAdapter(
                 rateCounterTv.text = context.getString(R.string.fake_rating_counter)
                 priceTv.text = product.price.toString()
             }
-            setupGlide(product.thumbnail , holder.productImage)
+            setupGlide(product.thumbnail, holder.productImage)
         }
     }
-
-    override fun getItemCount() = differ.currentList.size
 
     private fun setupGlide(url: String, thumbnail: ImageView) {
         Glide.with(context)

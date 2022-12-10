@@ -71,7 +71,7 @@ class SearchFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     progressBar.hide()
-                    adapter.differ.submitList(it.data!!.products)
+                    adapter.submitList(it.data!!.products)
                 }
                 is Resource.Error -> {
                     progressBar.hide()
@@ -97,7 +97,7 @@ class SearchFragment : Fragment() {
                         if (editable.toString().trim().isNotEmpty()) {
                             viewModel.search(editable.toString())
                         } else {
-                            adapter.differ.submitList(viewModel.allProducts)
+                            adapter.submitList(viewModel.allProducts)
                         }
                     }
                 }
